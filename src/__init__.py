@@ -6,8 +6,10 @@ from logging.handlers import RotatingFileHandler
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///forms.db'
+app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+# app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/travel-den-local'
 db = SQLAlchemy(app)
 
 # app.app_context().push()

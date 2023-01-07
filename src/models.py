@@ -8,6 +8,7 @@ class FormMessage(db.Model):
     countries = db.Column(db.String(length=30), nullable=False)
     
 
+    
     def __repr__(self):
         return f'FormMessage {self.fullname}'
 
