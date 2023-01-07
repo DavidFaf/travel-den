@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for message in messages %}
+        <div class='message'>
+            <h3>{{ message['fullname'] }}</h3>
+            <p>{{ message['email'] }}</p>
+            <p>{{ message['countries'] }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
