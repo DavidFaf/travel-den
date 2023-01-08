@@ -12,6 +12,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:bzKa43ROJx5PSW9VxeBNL
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/travel-den-local'
 db = SQLAlchemy(app)
 
+with app.app_context():
+    db.create_all()
+
 # app.app_context().push()
 
 def configure_logging(app):
