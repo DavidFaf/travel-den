@@ -1,4 +1,3 @@
-from src import app
 from src.models import setup_db, FormMessage, db_drop_and_create_all
 from flask import Flask, request
 from flask_cors import CORS
