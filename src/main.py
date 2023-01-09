@@ -1,9 +1,18 @@
-from flask import render_template, url_for, flash, redirect
-from src import app
-from src.forms import AddMessageForm
-from src import db
-from src.models import FormMessage
+from models import setup_db, FormMessage, db_drop_and_create_all
+from flask import Flask, request
+from flask_cors import CORS
+from models import db
 
+
+from flask import render_template, url_for, flash, redirect
+from forms import AddMessageForm
+from models import FormMessage
+
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'SECRET_KEY'
+setup_db(app)  
+db_drop_and_create_all(app)
 
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/home" ,methods=['GET', 'POST'])
@@ -39,5 +48,7 @@ def home():
     return render_template('form.html', form=form)
 
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
+
